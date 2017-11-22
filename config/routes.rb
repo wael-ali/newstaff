@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
+  get '/users', to: 'users#index'
 
 
   root 'static_pages#home'

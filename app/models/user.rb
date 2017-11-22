@@ -8,7 +8,8 @@ class User < ApplicationRecord
   validates :email, presence: true, length: {maximum: 255},
             format: {with: VALID_EMAIL_REGEX },
             uniqueness: {case_sensitive: false}
-  validates :password,presence: true, length: {minimum: 6}
+    validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+
   has_secure_password
 
   # remembers a user in the database for use in presistent sessions.
@@ -40,6 +41,7 @@ class User < ApplicationRecord
     def forget
         update_attribute(:remember_digest, nil)
     end
+
 
 
 end
