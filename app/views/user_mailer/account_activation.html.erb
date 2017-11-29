@@ -1,0 +1,10 @@
+<h1>NewStaff App</h1>
+
+<p>
+  <%= @greeting %>,<%= @user.name %>
+</p>
+<p>
+  Welcome to our staff! Click on the link below to activate your Account:
+</p>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token,email: @user.email) %>
