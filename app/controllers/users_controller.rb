@@ -11,6 +11,7 @@ end
 
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
     # debugger  #hellps to git cli in  the server level
   end
 
@@ -57,14 +58,8 @@ private
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
-  # confirms a logged-in user
-  def logged_in_user
-    unless loged_in?
-      store_location
-      flash[:danger] = "Please log in."
-      redirect_to login_url
-    end
-  end
+
+  
   # Confirms the correct user
   def correct_user
     @user = User.find(params[:id])
