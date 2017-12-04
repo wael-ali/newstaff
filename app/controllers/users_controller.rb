@@ -11,7 +11,7 @@ end
 
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.paginate(page: params[:page])
+    @microposts = @user.microposts.paginate(page: params[:page], per_page: 10)
     # debugger  #hellps to git cli in  the server level
   end
 
@@ -59,7 +59,7 @@ private
   end
 
 
-  
+
   # Confirms the correct user
   def correct_user
     @user = User.find(params[:id])
