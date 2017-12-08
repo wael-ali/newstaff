@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   	render html: "hallo new staff member"
   end
 
+
+
   private
 
   # confirms a logged-in user
